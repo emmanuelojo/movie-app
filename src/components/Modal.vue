@@ -1,0 +1,232 @@
+<!-- <template>
+  <teleport to="#modal">
+    <div
+      class="modal fixed top-0 bottom-0 left-0 right-0 grid justify-center place-content-center items-center bg-n-modal opacity-50 z-10"
+    >
+      <div
+        class="modal-content relative flex flex-col justify-center flex-shrink-0 w-97 h-97 p-5 rounded-lg overflow-auto"
+      >
+        <div
+          :class="[title ? 'justify-between' : 'justify-end']"
+          class="flex items-center justify-between"
+        >
+          <p class="text-lg font-medium text-n-text-black" v-if="title">
+            {{ title }}
+          </p>
+
+          <i @click="closeModal" class="fa fa-times cursor-pointer"></i>
+        </div>
+
+        <div
+          class="modal-content-body w-75 flex flex-col items-center justify-center px-2 py-0 mt-5 overflow-auto"
+        >
+          <slot> </slot>
+        </div>
+      </div>
+    </div>
+  </teleport>
+</template>
+
+<script lang="ts">
+import { defineComponent, onMounted, onUnmounted } from "vue";
+
+export default defineComponent({
+  name: "Modal",
+  props: {
+    title: {
+      type: String,
+      default: "",
+    },
+  },
+
+  emits: ["closeModal"],
+
+  setup(_, { emit }) {
+    onMounted(() => {
+      document.body.style.maxHeight = "100vh";
+      document.body.style.overflow = "hidden";
+    });
+
+    onUnmounted(() => {
+      document.body.style.overflow = "auto";
+    });
+
+    const closeModal = () => {
+      emit("closeModal");
+    };
+
+    return {
+      closeModal,
+    };
+  },
+});
+</script>
+
+<style>
+.modal-content {
+  background-color: #fff;
+}
+</style> -->
+
+<template>
+  <teleport to="#modal">
+    <div class="modal">
+      <div class="modal-content" :class="`max-w-${size}`">
+        <div class="" :class="[title ? 'justify-between' : 'justify-end']">
+          <h2 style="color: '#1c1c1c" v-if="title">
+            {{ title }}
+          </h2>
+
+          <i @click="closeModal" class="fa fa-times"></i>
+        </div>
+        <div class="modal-content__body">
+          <slot></slot>
+        </div>
+      </div>
+    </div>
+  </teleport>
+</template>
+
+<script lang="ts">
+import { defineComponent, onMounted, onUnmounted, PropType } from "vue";
+
+export default defineComponent({
+  props: {
+    size: {
+      type: String as PropType<
+        | "sm"
+        | "md"
+        | "lg"
+        | "xl"
+        | "2xl"
+        | "3xl"
+        | "4xl"
+        | "5xl"
+        | "6xl"
+        | "7xl"
+        | "8xl"
+        | "full"
+      >,
+      default: "md",
+    },
+    title: {
+      type: String,
+      default: "",
+    },
+  },
+
+  setup(_, { emit }) {
+    onMounted(() => {
+      document.body.style.maxHeight = "100vh";
+      document.body.style.overflow = "hidden";
+    });
+
+    onUnmounted(() => {
+      document.body.style.overflow = "auto";
+    });
+
+    const closeModal = () => {
+      emit("closeModal");
+    };
+
+    return {
+      closeModal,
+    };
+  },
+  emits: ["closeModal"],
+});
+</script>
+
+<style scoped>
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modal-content {
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  display: inline-block;
+  min-height: 300px;
+  min-width: 300px;
+  margin: 1rem;
+  position: relative;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
+  justify-content: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 50;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  z-index: 10;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 400px;
+  max-height: 90vh;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
+  justify-content: center;
+  overflow: auto;
+}
+
+.modal-content > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-content > div h2 {
+  font-weight: 500;
+  color: #1c1c1c;
+}
+.modal-content > div i {
+  font-size: 20px;
+  color: rgb(78, 74, 74);
+}
+
+.modal-content > div i:hover {
+  cursor: pointer;
+}
+
+.modal__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  margin-top: 20px;
+  overflow: auto;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-content {
+    width: 300px;
+  }
+}
+</style>
