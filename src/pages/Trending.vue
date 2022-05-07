@@ -1,5 +1,4 @@
 <template>
-  <!-- <div class="h-screen overflow-y-auto custom-scrollbar pt-5"> -->
   <div class="h-screen pt-5">
     <div v-if="isLoading" class="mt-64 flex justify-center items-center">
       <Loader />
@@ -36,7 +35,7 @@
           <div
             v-for="movie in filteredMovies.slice(-3)"
             :key="movie.id"
-            class="cursor-pointer mb-5"
+            class="cursor-pointer mb-5 mx-auto"
           >
             <div
               class="w-[85vw] md:w-80 h-40 p-4 rounded-md relative"
@@ -49,11 +48,13 @@
               <div
                 @click="addToBookmark(movie)"
                 :class="
-                  isBookmarked(movie.id) ? 'bg-green-500' : 'bg-transparent'
+                  isBookmarked(movie.id)
+                    ? 'bg-green-500'
+                    : 'bg-[rgba(0,0,0,0.3)]'
                 "
                 class="w-6 h-6 text-white text-sm rounded-full pt-1.5 absolute top-3 right-3"
               >
-                <div class="flex items-center justify-center">
+                <div class="grid place-content-center pt-[1px]">
                   <i class="fa fa-bookmark"></i>
                 </div>
               </div>
@@ -69,7 +70,7 @@
                 </p>
                 <p>{{ movie.genres.join(", ") }}</p>
               </div>
-              <p class="md:w-80 font-bold text-base">
+              <p class="w-72 md:w-80 font-bold text-base">
                 {{ movie.title }}
               </p>
             </div>
@@ -87,7 +88,7 @@
 
         <div
           v-if="filteredMovies.length"
-          class="grid place-content-center lg:place-content-start lg:ml-0 md:grid-cols-2 md:mx-auto gap-8 md:gap-6 lg:flex lg:flex-wrap"
+          class="mx-auto lg:mx-0 md:grid md:grid-cols-2 lg:grid-cols-n-auto md:gap-5"
         >
           <div
             v-for="movie in filteredMovies"
@@ -105,7 +106,9 @@
               <div
                 @click="addToBookmark(movie)"
                 :class="
-                  isBookmarked(movie.id) ? 'bg-green-500' : 'bg-transparent'
+                  isBookmarked(movie.id)
+                    ? 'bg-green-500'
+                    : 'bg-[rgba(0,0,0,0.3)]'
                 "
                 class="w-6 h-6 text-white text-sm rounded-full pt-1.5 absolute top-3 right-3"
               >
@@ -125,7 +128,7 @@
                 </p>
                 <p>{{ movie.genres.join(", ") }}</p>
               </div>
-              <p class="md:w-80 font-bold text-base">{{ movie.title }}</p>
+              <p class="w-72 md:w-80 font-bold text-base">{{ movie.title }}</p>
             </div>
           </div>
         </div>

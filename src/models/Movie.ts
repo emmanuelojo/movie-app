@@ -57,37 +57,3 @@ export interface Cast {
   url_small_image: string;
   imdb_code: string;
 }
-
-// export interface Movie {
-//   id: number;
-//   year: number;
-//   make: string;
-//   model: string;
-//   type: string;
-//   img: string;
-
-//   // _id: string;
-//   // imdbTitleId: string;
-//   // title: string;
-//   // year: number;
-//   // datePublished: string;
-//   // genre: string;
-//   // duration: string;
-//   // country: string;
-//   // language: string;
-//   // director: string;
-//   // writer: string;
-//   // productionCompany: string;
-//   // actors: string;
-//   // description: string;
-//   // avgVot: number;
-//   // votes: number;
-//   // reviewsFromUsers: number;
-//   // reviewsFromCritics: number;
-
-//   // Title: string;
-//   // Year: string;
-//   // imdbID: string;
-//   // Type: string;
-//   // Poster: string;
-// }

@@ -49,11 +49,6 @@
                 backgroundRepeat: `no-repeat`,
               }"
             >
-              <!-- <img
-              :src="movie.background_image_original"
-              alt="movie"
-              class="w-full h-full object-cover absolute top-0 bottom-0 left-0 right-0 rounded-md"
-            /> -->
               <div
                 @click="addToBookmark(movie)"
                 :class="isBookmarked(movie.id) ? 'bg-green-500' : 'bg-n-modal'"
@@ -76,7 +71,9 @@
                 </p>
                 <p>{{ movie.genres.join(", ") }}</p>
               </div>
-              <p class="font-bold text-base">{{ movie.title }}</p>
+              <p class="w-72 md:w-80 font-bold text-base">
+                {{ movie.title }}
+              </p>
             </div>
           </div>
         </div>
@@ -93,10 +90,10 @@
 
 <script lang="ts">
 import { computed, defineComponent, onMounted, ref } from "vue";
+import Loader from "../components/Loader.vue";
 import { Movie } from "../models/Movie";
 import router from "../router";
 import moviesStore from "../store/moviesStore";
-import Loader from "../components/Loader.vue";
 
 export default defineComponent({
   name: "Movies",

@@ -55,9 +55,6 @@
       </div>
     </div>
 
-    <!-- <div
-      class="w-10 h-10 rounded-full p-1 mb-10 hidden md:grid place-content-center mx-auto"
-    > -->
     <div
       class="w-10 h-10 rounded-full p-1 mb-10 hidden md:grid place-content-center mx-auto md:mr-10"
     >

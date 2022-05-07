@@ -27,6 +27,7 @@ module.exports = {
         "auto-1fr": "auto 1fr",
         "three-1fr": "1fr 1fr 1fr",
         "1-10": "1fr 9fr",
+        "n-auto": "repeat(auto-fit, minmax(400px, 1fr))",
       },
       padding: {
         1.5: "5px",

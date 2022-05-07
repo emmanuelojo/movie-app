@@ -8,17 +8,7 @@
   </router-view>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted } from "vue";
-
-export default defineComponent({
-  setup() {
-    onMounted(() => {
-      console.log(import.meta.env.VITE_APP_API_URL, "url");
-    });
-  },
-});
-</script>
+<script lang="ts"></script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");

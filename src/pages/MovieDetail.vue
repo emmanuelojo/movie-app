@@ -1,6 +1,9 @@
 <template>
   <div class="h-screen overflow-y-auto custom-scrollbar p-5">
-    <div v-if="movie" class="mt-4 grid lg:grid-cols-auto-1fr gap-10">
+    <div
+      v-if="movie"
+      class="pt-10 md:mx-8 lg:mx-0 grid lg:grid-cols-auto-1fr gap-10"
+    >
       <div
         class="w-full h-52 lg:h-[600px] flex justify-center mx-auto rounded-lg"
       >
@@ -94,9 +97,9 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
+import Loader from "../components/Loader.vue";
 import router from "../router";
 import moviesStore from "../store/moviesStore";
-import Loader from "../components/Loader.vue";
 import { formattedDate } from "../utils/helpers";
 
 export default defineComponent({

@@ -46,16 +46,6 @@
                 backgroundRepeat: `no-repeat`,
               }"
             >
-              <!-- :style="{
-                backgroundImage: `url(${series.serial.poster.original})`,
-                backgroundSize: `cover`,
-                backgroundRepeat: `no-repeat`,
-              }" -->
-              <!-- <img
-                :src="series.serial.poster.original"
-                :alt="series.serial.title"
-                class="w-full h-full object-cover absolute top-0 bottom-0 left-0 right-0 rounded-md"
-              /> -->
               <div
                 @click="addToBookmark(series)"
                 :class="isBookmarked(series.id) ? 'bg-green-500' : 'bg-n-modal'"
@@ -94,10 +84,10 @@
 
 <script lang="ts">
 import { computed, defineComponent, onMounted, ref } from "vue";
+import Loader from "../components/Loader.vue";
 import { Ep } from "../models/Series";
 import seriesStore from "../store/seriesStore";
 import { truncateString } from "../utils/helpers";
-import Loader from "../components/Loader.vue";
 
 export default defineComponent({
   name: "Series",

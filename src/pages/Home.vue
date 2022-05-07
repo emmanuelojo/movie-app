@@ -1,5 +1,4 @@
 <template>
-  <!-- <div class="h-full grid lg:grid-cols-auto-1fr lg:gap-10"> -->
   <div class="h-screen lg:h-full grid lg:grid-cols-auto-1fr lg:gap-10">
     <Sidebar />
 
